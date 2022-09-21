@@ -8,26 +8,34 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  background: grey;
 }
 
 .board {
-  width: calc(64px * 8);
-  height: calc(64px * 8);
+  width: calc(80px * 8);
+  height: calc(80px * 8);
   display: flex;
   flex-wrap: wrap;
 }
 .cell {
-  width: 64px;
-  height: 64px;
+  width: 80px;
+  height: 80px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
+.cell img {
+  width: 48px;
+  height: 48px;
+  position: relative;
+}
 .black {
-  background: #000;
+  background: #7a750d;
 }
 
 .white {
-  background: rgb(124, 124, 124);
+  background: rgb(153, 153, 153);
+}
+.selected {
+  background-color: brown;
 }

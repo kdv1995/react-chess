@@ -1,12 +1,35 @@
-import React from "react";
+import { Board } from "models/Board";
+import { Cell } from "models/Cell";
+import React, { FC, useState } from "react";
+import CellComponent from "./CellComponent";
 
-const BoardComponents = () => {
+interface BoardProps {
+  board: Board;
+  setBoard: (board: Board) => void;
+}
+
+const BoardComponents: FC<BoardProps> = ({ board, setBoard }) => {
+  const [selectedCell, setSelectedCell] = useState<Cell | null>(null);
+
+  function click(cell: Cell) {
+    setSelectedCell(cell);
+  }
   return (
     <div className="board">
-      <div className="cell white"></div>
-      <div className="cell black"></div>
-      <div className="cell black"></div>
-      <div className="cell white"></div>
+      {board.cells.map((row, index) => (
+        <React.Fragment key={index}>
+          {row.map((cell) => (
+            <CellComponent
+              click={click}
+              cell={cell}
+              key={cell.id}
+              selected={
+                cell.x === selectedCell?.x && cell.y === selectedCell?.y
+              }
+            />
+          ))}
+        </React.Fragment>
+      ))}
     </div>
   );
 };
