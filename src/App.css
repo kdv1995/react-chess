@@ -39,3 +39,15 @@
 .selected {
   background-color: brown;
 }
+.available {
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  background: green;
+}
+.lost {
+  height: calc(50vh - 50px);
+  padding: 25px;
+  margin-left: 50px;
+  background-color: lightgray;
+}
